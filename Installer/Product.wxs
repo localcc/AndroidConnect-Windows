@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="ec3b69f9-7fe6-4d98-96dc-fc36535458c1" Name="AndroidConnect" Language="1033" Version="0.0.1" Manufacturer="localChicken" UpgradeCode="ffdcfbfe-59dc-4d15-975a-711d0d557d9c">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64"/>
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="AndroidConnect Installer" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+  </Product>
+  
+
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="AndroidConnect" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+      </Directory>
+    </Directory>
+	</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ProgramMenuFolder">
+      <Component Id="ApplicationShortcut" Guid="E0D6B83E-CC52-463F-84DC-FD4A9364732E" Win64="yes">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="AndroidConnect" Description="An app that syncs!" Target="[INSTALLFOLDER]AndroidConnect.exe" WorkingDirectory="INSTALLFOLDER">
+          <ShortcutProperty Key="System.AppUserModel.ID" Value="localChicken.AndroidConnect"/>
+          <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{426CDE19-CFC8-4DA3-A2E7-D4F36039D47C}"/>        
+        </Shortcut>
+        <RegistryValue Root="HKCU" Key="Software/localChicken/AndroidConnect" Name="isInstalled" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="AndroidConnect.exe" Guid="71968de2-7f5d-448b-b895-0a11dffd1382" Win64="yes">
+        <File Id="AndroidConnect.exe" Name="AndroidConnect.exe" Source="$(var.AndroidConnect.TargetDir)AndroidConnect.exe"/>
+      </Component>
+
+
+      <Component Id="rttr_core.dll" Guid="5426607e-b048-4155-bbe1-af2946aace9d" Win64="yes">
+        <File Id="rttr_core.dll" Name="rttr_core.dll" Source="$(var.AndroidConnect.TargetDir)rttr_core.dll"/>
+      </Component>
+
+      <Component Id="libssl.dll" Guid="19f8079e-ea73-4917-80ce-7295b5d26a94" Win64="yes">
+        <File Id="libssl.dll" Name="libssl-3.dll" Source="$(var.AndroidConnect.TargetDir)libssl-3.dll"/>
+      </Component>
+
+      <Component Id="libcrypto.dll" Guid="a2dec0f4-f334-455a-9c9a-ec862863c816" Win64="yes">
+        <File Id="libcrypto.dll" Name="libcrypto-3.dll" Source="$(var.AndroidConnect.TargetDir)libcrypto-3.dll"/>
+      </Component>
+      
+      
+      
+      <ComponentRef Id="ApplicationShortcut"/>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

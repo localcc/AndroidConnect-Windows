@@ -1,0 +1,7 @@
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\cab1.cab
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\Installer.msi
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\Installer.wixpdb
+obj\Release\Product.wixobj
+obj\Release\Installer.wixproj.BindContentsFileListnull.txt
+obj\Release\Installer.wixproj.BindOutputsFileListnull.txt
+obj\Release\Installer.wixproj.BindBuiltOutputsFileListnull.txt

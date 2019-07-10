@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package AndroidConnect;
+message Notification {
+	int32 NotificationParameters = 1;
+	string text = 2;
+	string undertext = 3;
+	string title = 4;
+	string imageName = 5;
+}

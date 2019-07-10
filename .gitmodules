@@ -1,0 +1,9 @@
+[submodule "AndroidConnect/Libs/protobuf/protobuf"]
+	path = AndroidConnect/Libs/protobuf/protobuf
+	url = https://github.com/protocolbuffers/protobuf
+[submodule "AndroidConnect/Libs/rttr/rttr"]
+	path = AndroidConnect/Libs/rttr/rttr
+	url = https://github.com/rttrorg/rttr/
+[submodule "AndroidConnect/Libs/openssl/openssl"]
+	path = AndroidConnect/Libs/openssl/openssl
+	url = https://github.com/openssl/openssl

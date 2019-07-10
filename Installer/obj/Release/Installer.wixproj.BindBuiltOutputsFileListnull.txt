@@ -1,0 +1,3 @@
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\cab1.cab
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\Installer.msi
+C:\Users\local_aavmoxe\source\repos\AndroidConnect\Installer\bin\Release\Installer.wixpdb

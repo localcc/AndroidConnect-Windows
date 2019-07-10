@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{12be8607-01b4-4a61-9651-e1e5ed11115b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WinAPI">
+      <UniqueIdentifier>{8071db79-ecfd-4f35-9a14-4a6b921a98db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WinAPI\Notification">
+      <UniqueIdentifier>{34052a82-f2d3-47e0-9061-62813d0a3495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TCPServer">
+      <UniqueIdentifier>{517544f7-d694-4171-a684-cc1664fde71c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Plugins">
+      <UniqueIdentifier>{33b95c78-853f-40ab-9f23-13c63ef1ae04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WinAPI\Interfaces">
+      <UniqueIdentifier>{bb38f05b-62ab-4972-8fdb-6dbfb2d3142f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinAPI\Notification\DesktopNotificationManagerCompat.cpp">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="WinAPI\Notification\NotificationHelper.cpp">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="WinAPI\Notification\XmlGenerator.cpp">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPServer\TCPServer.cpp">
+      <Filter>Source Files\TCPServer</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPServer\OpenSSLHelper.cpp">
+      <Filter>Source Files\TCPServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\Notification.pb.cc">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WinAPI\Notification\DesktopNotificationManagerCompat.h">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAPI\Notification\NotificationHelper.hpp">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAPI\Notification\XmlGenerator.hpp">
+      <Filter>Source Files\WinAPI\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPServer\TCPServer.hpp">
+      <Filter>Source Files\TCPServer</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPServer\OpenSSLHelper.hpp">
+      <Filter>Source Files\TCPServer</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAPI\Interfaces\Interfaces.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\Notification.pb.h">
+      <Filter>Source Files\Plugins</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
