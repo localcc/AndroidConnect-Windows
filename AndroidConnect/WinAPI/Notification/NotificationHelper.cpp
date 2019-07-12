@@ -45,22 +45,23 @@ namespace AndroidConnect {
 
 		if (SUCCEEDED(hr)) {
 			Notification notification = Notification();
-			notification.ParseFromArray(bytes, arraySize);
-
-			hr = XmlGenerator::Decode(notification, doc.Get());
-
-			if (SUCCEEDED(hr)) {
-				ComPtr<IToastNotifier> notifier;
-				hr = DesktopNotificationManagerCompat::CreateToastNotifier(&notifier);
+			boolean success = notification.ParseFromArray(bytes, arraySize);
+			if(success){
+				hr = XmlGenerator::Decode(notification, doc.Get());
 
 				if (SUCCEEDED(hr)) {
-					ComPtr<IToastNotification> notification;
-					hr = DesktopNotificationManagerCompat::CreateToastNotification(doc.Get(), &notification);
+					ComPtr<IToastNotifier> notifier;
+					hr = DesktopNotificationManagerCompat::CreateToastNotifier(&notifier);
 
 					if (SUCCEEDED(hr)) {
+						ComPtr<IToastNotification> notification;
+						hr = DesktopNotificationManagerCompat::CreateToastNotification(doc.Get(), &notification);
 
-						hr = notifier->Show(notification.Get());
+						if (SUCCEEDED(hr)) {
 
+							hr = notifier->Show(notification.Get());
+
+						}
 					}
 				}
 			}

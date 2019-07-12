@@ -3,8 +3,6 @@
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 
-#include <rttr/registration>
-
 
 #include <Windows.h>
 #include "../WinAPI/Notification/NotificationHelper.hpp"
@@ -36,7 +34,7 @@ namespace AndroidConnect {
 		T calcBytes(T* data, T offset) {
 			return(data[0] - offset) | (data[1] - offset);
 		}
-		std::unordered_map<char*, rttr::variant> classesMap;
+
 		void HandleClient(SSL* client);
 	};
 }

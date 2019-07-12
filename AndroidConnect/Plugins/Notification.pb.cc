@@ -5,7 +5,6 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/wire_format_lite.h>
@@ -59,7 +58,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::AndroidConnect::_Notification_default_instance_),
 };
 
-const char descriptor_table_protodef_Notification_2eproto[] =
+const char descriptor_table_protodef_Notification_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022Notification.proto\022\016AndroidConnect\"q\n\014"
   "Notification\022\036\n\026NotificationParameters\030\001"
   " \001(\005\022\014\n\004text\030\002 \001(\t\022\021\n\tundertext\030\003 \001(\t\022\r\n"
@@ -87,17 +86,9 @@ namespace AndroidConnect {
 
 void Notification::InitAsDefaultInstance() {
 }
-class Notification::HasBitSetters {
+class Notification::_Internal {
  public:
 };
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Notification::kNotificationParametersFieldNumber;
-const int Notification::kTextFieldNumber;
-const int Notification::kUndertextFieldNumber;
-const int Notification::kTitleFieldNumber;
-const int Notification::kImageNameFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Notification::Notification()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -109,19 +100,19 @@ Notification::Notification(const Notification& from)
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from.text().size() > 0) {
+  if (!from.text().empty()) {
     text_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.text_);
   }
   undertext_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from.undertext().size() > 0) {
+  if (!from.undertext().empty()) {
     undertext_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.undertext_);
   }
   title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from.title().size() > 0) {
+  if (!from.title().empty()) {
     title_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.title_);
   }
   imagename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from.imagename().size() > 0) {
+  if (!from.imagename().empty()) {
     imagename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.imagename_);
   }
   notificationparameters_ = from.notificationparameters_;
@@ -339,72 +330,15 @@ failure:
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void Notification::SerializeWithCachedSizes(
-    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:AndroidConnect.Notification)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 NotificationParameters = 1;
-  if (this->notificationparameters() != 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32(1, this->notificationparameters(), output);
-  }
-
-  // string text = 2;
-  if (this->text().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->text().data(), static_cast<int>(this->text().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "AndroidConnect.Notification.text");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->text(), output);
-  }
-
-  // string undertext = 3;
-  if (this->undertext().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->undertext().data(), static_cast<int>(this->undertext().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "AndroidConnect.Notification.undertext");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->undertext(), output);
-  }
-
-  // string title = 4;
-  if (this->title().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->title().data(), static_cast<int>(this->title().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "AndroidConnect.Notification.title");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->title(), output);
-  }
-
-  // string imageName = 5;
-  if (this->imagename().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->imagename().data(), static_cast<int>(this->imagename().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "AndroidConnect.Notification.imageName");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->imagename(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:AndroidConnect.Notification)
-}
-
 ::PROTOBUF_NAMESPACE_ID::uint8* Notification::InternalSerializeWithCachedSizesToArray(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:AndroidConnect.Notification)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 NotificationParameters = 1;
   if (this->notificationparameters() != 0) {
+    stream->EnsureSpace(&target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->notificationparameters(), target);
   }
 
@@ -414,8 +348,7 @@ void Notification::SerializeWithCachedSizes(
       this->text().data(), static_cast<int>(this->text().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "AndroidConnect.Notification.text");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+    target = stream->WriteStringMaybeAliased(
         2, this->text(), target);
   }
 
@@ -425,8 +358,7 @@ void Notification::SerializeWithCachedSizes(
       this->undertext().data(), static_cast<int>(this->undertext().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "AndroidConnect.Notification.undertext");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+    target = stream->WriteStringMaybeAliased(
         3, this->undertext(), target);
   }
 
@@ -436,8 +368,7 @@ void Notification::SerializeWithCachedSizes(
       this->title().data(), static_cast<int>(this->title().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "AndroidConnect.Notification.title");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+    target = stream->WriteStringMaybeAliased(
         4, this->title(), target);
   }
 
@@ -447,14 +378,13 @@ void Notification::SerializeWithCachedSizes(
       this->imagename().data(), static_cast<int>(this->imagename().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "AndroidConnect.Notification.imageName");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+    target = stream->WriteStringMaybeAliased(
         5, this->imagename(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:AndroidConnect.Notification)
   return target;
@@ -464,11 +394,6 @@ size_t Notification::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:AndroidConnect.Notification)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -508,6 +433,10 @@ size_t Notification::ByteSizeLong() const {
         this->notificationparameters());
   }
 
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -574,10 +503,6 @@ bool Notification::IsInitialized() const {
   return true;
 }
 
-void Notification::Swap(Notification* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void Notification::InternalSwap(Notification* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);

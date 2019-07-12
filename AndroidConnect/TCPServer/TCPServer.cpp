@@ -1,4 +1,6 @@
 #include "TCPServer.hpp"
+
+#include <openssl/applink.c>
 #include <thread>
 #include "../WinAPI/Notification/NotificationHelper.hpp"
 #include <charconv>
@@ -7,12 +9,6 @@
 
 #define PORT "4908"
 
-RTTR_REGISTRATION{
-	rttr::registration::class_<AndroidConnect::NotificationHelper>("0")
-	.constructor<>()
-	.method("Invoke", &AndroidConnect::NotificationHelper::SendNotification);
-
-};
 
 namespace AndroidConnect {
 
