@@ -1,24 +1,25 @@
 #pragma once
+#include <Unknwn.h>
 
-#include "DesktopNotificationManagerCompat.h"
+#include <combaseapi.h>
 #include <NotificationActivationCallback.h>
-#include <windows.ui.notifications.h>
+#include <winrt/Windows.UI.Notifications.h>
+#include <winrt/Windows.UI.Notifications.Management.h>
+#include <winrt/Windows.Data.Xml.Dom.h>
 
+#include <winrt\Windows.Foundation.h>
 
-
-using namespace ABI::Windows::Data::Xml::Dom;
-using namespace ABI::Windows::UI::Notifications;
-using namespace Microsoft::WRL;
 
 namespace AndroidConnect {
-
-
 	class NotificationHelper {
 	public:
 		NotificationHelper();
 		~NotificationHelper();
-		
-		HRESULT SendNotification(void *bytes, int arraySize);
+		void SendNotification(unsigned char* data, int size, unsigned int clientId);
+	private:
+		void RegisterCom(GUID clsId, const wchar_t* exePath);
 
+		void RegisterInProc(GUID clsId, const wchar_t* dllPath);
+		void RegisterAumidAndCom(const wchar_t* aumid, GUID clsId);
 	};
 }

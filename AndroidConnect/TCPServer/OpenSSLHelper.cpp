@@ -26,6 +26,8 @@ namespace AndroidConnect {
 	void OpenSSLHelper::configure_context(SSL_CTX* ctx, const char* certPath, const char* keyPath) {
 		SSL_CTX_set_ecdh_auto(ctx, 1);
 
+		
+
 		if (SSL_CTX_use_certificate_file(ctx, certPath, SSL_FILETYPE_PEM) <= 0) printf("Unable to load certificate!\n");
 		if (SSL_CTX_use_PrivateKey_file(ctx, keyPath, SSL_FILETYPE_PEM) <= 0) {
 			

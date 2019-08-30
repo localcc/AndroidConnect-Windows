@@ -47,7 +47,7 @@ struct TableStruct_Notification_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[1]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,9 +58,17 @@ namespace AndroidConnect {
 class Notification;
 class NotificationDefaultTypeInternal;
 extern NotificationDefaultTypeInternal _Notification_default_instance_;
+class NotificationActions;
+class NotificationActionsDefaultTypeInternal;
+extern NotificationActionsDefaultTypeInternal _NotificationActions_default_instance_;
+class NotificationReply;
+class NotificationReplyDefaultTypeInternal;
+extern NotificationReplyDefaultTypeInternal _NotificationReply_default_instance_;
 }  // namespace AndroidConnect
 PROTOBUF_NAMESPACE_OPEN
 template<> ::AndroidConnect::Notification* Arena::CreateMaybeMessage<::AndroidConnect::Notification>(Arena*);
+template<> ::AndroidConnect::NotificationActions* Arena::CreateMaybeMessage<::AndroidConnect::NotificationActions>(Arena*);
+template<> ::AndroidConnect::NotificationReply* Arena::CreateMaybeMessage<::AndroidConnect::NotificationReply>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace AndroidConnect {
 
@@ -177,12 +185,25 @@ class Notification :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNActionsFieldNumber = 6,
     kTextFieldNumber = 2,
     kUndertextFieldNumber = 3,
     kTitleFieldNumber = 4,
     kImageNameFieldNumber = 5,
+    kReplyFieldNumber = 7,
     kNotificationParametersFieldNumber = 1,
   };
+  // repeated .AndroidConnect.NotificationActions nActions = 6;
+  int nactions_size() const;
+  void clear_nactions();
+  ::AndroidConnect::NotificationActions* mutable_nactions(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::AndroidConnect::NotificationActions >*
+      mutable_nactions();
+  const ::AndroidConnect::NotificationActions& nactions(int index) const;
+  ::AndroidConnect::NotificationActions* add_nactions();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::AndroidConnect::NotificationActions >&
+      nactions() const;
+
   // string text = 2;
   void clear_text();
   const std::string& text() const;
@@ -227,6 +248,14 @@ class Notification :
   std::string* release_imagename();
   void set_allocated_imagename(std::string* imagename);
 
+  // .AndroidConnect.NotificationReply reply = 7;
+  bool has_reply() const;
+  void clear_reply();
+  const ::AndroidConnect::NotificationReply& reply() const;
+  ::AndroidConnect::NotificationReply* release_reply();
+  ::AndroidConnect::NotificationReply* mutable_reply();
+  void set_allocated_reply(::AndroidConnect::NotificationReply* reply);
+
   // int32 NotificationParameters = 1;
   void clear_notificationparameters();
   ::PROTOBUF_NAMESPACE_ID::int32 notificationparameters() const;
@@ -237,11 +266,329 @@ class Notification :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::AndroidConnect::NotificationActions > nactions_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr undertext_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr imagename_;
+  ::AndroidConnect::NotificationReply* reply_;
   ::PROTOBUF_NAMESPACE_ID::int32 notificationparameters_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Notification_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotificationActions :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AndroidConnect.NotificationActions) */ {
+ public:
+  NotificationActions();
+  virtual ~NotificationActions();
+
+  NotificationActions(const NotificationActions& from);
+  NotificationActions(NotificationActions&& from) noexcept
+    : NotificationActions() {
+    *this = ::std::move(from);
+  }
+
+  inline NotificationActions& operator=(const NotificationActions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NotificationActions& operator=(NotificationActions&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const NotificationActions& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotificationActions* internal_default_instance() {
+    return reinterpret_cast<const NotificationActions*>(
+               &_NotificationActions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(NotificationActions& a, NotificationActions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NotificationActions* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotificationActions* New() const final {
+    return CreateMaybeMessage<NotificationActions>(nullptr);
+  }
+
+  NotificationActions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<NotificationActions>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const NotificationActions& from);
+  void MergeFrom(const NotificationActions& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotificationActions* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "AndroidConnect.NotificationActions";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Notification_2eproto);
+    return ::descriptor_table_Notification_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kContentFieldNumber = 1,
+    kArgsFieldNumber = 2,
+    kATypeFieldNumber = 3,
+    kIsRepliableFieldNumber = 4,
+  };
+  // string content = 1;
+  void clear_content();
+  const std::string& content() const;
+  void set_content(const std::string& value);
+  void set_content(std::string&& value);
+  void set_content(const char* value);
+  void set_content(const char* value, size_t size);
+  std::string* mutable_content();
+  std::string* release_content();
+  void set_allocated_content(std::string* content);
+
+  // string args = 2;
+  void clear_args();
+  const std::string& args() const;
+  void set_args(const std::string& value);
+  void set_args(std::string&& value);
+  void set_args(const char* value);
+  void set_args(const char* value, size_t size);
+  std::string* mutable_args();
+  std::string* release_args();
+  void set_allocated_args(std::string* args);
+
+  // string aType = 3;
+  void clear_atype();
+  const std::string& atype() const;
+  void set_atype(const std::string& value);
+  void set_atype(std::string&& value);
+  void set_atype(const char* value);
+  void set_atype(const char* value, size_t size);
+  std::string* mutable_atype();
+  std::string* release_atype();
+  void set_allocated_atype(std::string* atype);
+
+  // int32 isRepliable = 4;
+  void clear_isrepliable();
+  ::PROTOBUF_NAMESPACE_ID::int32 isrepliable() const;
+  void set_isrepliable(::PROTOBUF_NAMESPACE_ID::int32 value);
+
+  // @@protoc_insertion_point(class_scope:AndroidConnect.NotificationActions)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr content_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr args_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr atype_;
+  ::PROTOBUF_NAMESPACE_ID::int32 isrepliable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Notification_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotificationReply :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AndroidConnect.NotificationReply) */ {
+ public:
+  NotificationReply();
+  virtual ~NotificationReply();
+
+  NotificationReply(const NotificationReply& from);
+  NotificationReply(NotificationReply&& from) noexcept
+    : NotificationReply() {
+    *this = ::std::move(from);
+  }
+
+  inline NotificationReply& operator=(const NotificationReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NotificationReply& operator=(NotificationReply&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const NotificationReply& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotificationReply* internal_default_instance() {
+    return reinterpret_cast<const NotificationReply*>(
+               &_NotificationReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(NotificationReply& a, NotificationReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NotificationReply* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotificationReply* New() const final {
+    return CreateMaybeMessage<NotificationReply>(nullptr);
+  }
+
+  NotificationReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<NotificationReply>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const NotificationReply& from);
+  void MergeFrom(const NotificationReply& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotificationReply* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "AndroidConnect.NotificationReply";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Notification_2eproto);
+    return ::descriptor_table_Notification_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReplykeyFieldNumber = 1,
+    kReplyvalueFieldNumber = 2,
+  };
+  // string replykey = 1;
+  void clear_replykey();
+  const std::string& replykey() const;
+  void set_replykey(const std::string& value);
+  void set_replykey(std::string&& value);
+  void set_replykey(const char* value);
+  void set_replykey(const char* value, size_t size);
+  std::string* mutable_replykey();
+  std::string* release_replykey();
+  void set_allocated_replykey(std::string* replykey);
+
+  // string replyvalue = 2;
+  void clear_replyvalue();
+  const std::string& replyvalue() const;
+  void set_replyvalue(const std::string& value);
+  void set_replyvalue(std::string&& value);
+  void set_replyvalue(const char* value);
+  void set_replyvalue(const char* value, size_t size);
+  std::string* mutable_replyvalue();
+  std::string* release_replyvalue();
+  void set_allocated_replyvalue(std::string* replyvalue);
+
+  // @@protoc_insertion_point(class_scope:AndroidConnect.NotificationReply)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr replykey_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr replyvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Notification_2eproto;
 };
@@ -474,9 +821,371 @@ inline void Notification::set_allocated_imagename(std::string* imagename) {
   // @@protoc_insertion_point(field_set_allocated:AndroidConnect.Notification.imageName)
 }
 
+// repeated .AndroidConnect.NotificationActions nActions = 6;
+inline int Notification::nactions_size() const {
+  return nactions_.size();
+}
+inline void Notification::clear_nactions() {
+  nactions_.Clear();
+}
+inline ::AndroidConnect::NotificationActions* Notification::mutable_nactions(int index) {
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.Notification.nActions)
+  return nactions_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::AndroidConnect::NotificationActions >*
+Notification::mutable_nactions() {
+  // @@protoc_insertion_point(field_mutable_list:AndroidConnect.Notification.nActions)
+  return &nactions_;
+}
+inline const ::AndroidConnect::NotificationActions& Notification::nactions(int index) const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.Notification.nActions)
+  return nactions_.Get(index);
+}
+inline ::AndroidConnect::NotificationActions* Notification::add_nactions() {
+  // @@protoc_insertion_point(field_add:AndroidConnect.Notification.nActions)
+  return nactions_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::AndroidConnect::NotificationActions >&
+Notification::nactions() const {
+  // @@protoc_insertion_point(field_list:AndroidConnect.Notification.nActions)
+  return nactions_;
+}
+
+// .AndroidConnect.NotificationReply reply = 7;
+inline bool Notification::has_reply() const {
+  return this != internal_default_instance() && reply_ != nullptr;
+}
+inline void Notification::clear_reply() {
+  if (GetArenaNoVirtual() == nullptr && reply_ != nullptr) {
+    delete reply_;
+  }
+  reply_ = nullptr;
+}
+inline const ::AndroidConnect::NotificationReply& Notification::reply() const {
+  const ::AndroidConnect::NotificationReply* p = reply_;
+  // @@protoc_insertion_point(field_get:AndroidConnect.Notification.reply)
+  return p != nullptr ? *p : *reinterpret_cast<const ::AndroidConnect::NotificationReply*>(
+      &::AndroidConnect::_NotificationReply_default_instance_);
+}
+inline ::AndroidConnect::NotificationReply* Notification::release_reply() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.Notification.reply)
+  
+  ::AndroidConnect::NotificationReply* temp = reply_;
+  reply_ = nullptr;
+  return temp;
+}
+inline ::AndroidConnect::NotificationReply* Notification::mutable_reply() {
+  
+  if (reply_ == nullptr) {
+    auto* p = CreateMaybeMessage<::AndroidConnect::NotificationReply>(GetArenaNoVirtual());
+    reply_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.Notification.reply)
+  return reply_;
+}
+inline void Notification::set_allocated_reply(::AndroidConnect::NotificationReply* reply) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reply_;
+  }
+  if (reply) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      reply = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, reply, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  reply_ = reply;
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.Notification.reply)
+}
+
+// -------------------------------------------------------------------
+
+// NotificationActions
+
+// string content = 1;
+inline void NotificationActions::clear_content() {
+  content_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& NotificationActions::content() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationActions.content)
+  return content_.GetNoArena();
+}
+inline void NotificationActions::set_content(const std::string& value) {
+  
+  content_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationActions.content)
+}
+inline void NotificationActions::set_content(std::string&& value) {
+  
+  content_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:AndroidConnect.NotificationActions.content)
+}
+inline void NotificationActions::set_content(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  content_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:AndroidConnect.NotificationActions.content)
+}
+inline void NotificationActions::set_content(const char* value, size_t size) {
+  
+  content_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:AndroidConnect.NotificationActions.content)
+}
+inline std::string* NotificationActions::mutable_content() {
+  
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.NotificationActions.content)
+  return content_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* NotificationActions::release_content() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.NotificationActions.content)
+  
+  return content_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotificationActions::set_allocated_content(std::string* content) {
+  if (content != nullptr) {
+    
+  } else {
+    
+  }
+  content_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content);
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.NotificationActions.content)
+}
+
+// string args = 2;
+inline void NotificationActions::clear_args() {
+  args_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& NotificationActions::args() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationActions.args)
+  return args_.GetNoArena();
+}
+inline void NotificationActions::set_args(const std::string& value) {
+  
+  args_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationActions.args)
+}
+inline void NotificationActions::set_args(std::string&& value) {
+  
+  args_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:AndroidConnect.NotificationActions.args)
+}
+inline void NotificationActions::set_args(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  args_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:AndroidConnect.NotificationActions.args)
+}
+inline void NotificationActions::set_args(const char* value, size_t size) {
+  
+  args_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:AndroidConnect.NotificationActions.args)
+}
+inline std::string* NotificationActions::mutable_args() {
+  
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.NotificationActions.args)
+  return args_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* NotificationActions::release_args() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.NotificationActions.args)
+  
+  return args_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotificationActions::set_allocated_args(std::string* args) {
+  if (args != nullptr) {
+    
+  } else {
+    
+  }
+  args_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), args);
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.NotificationActions.args)
+}
+
+// string aType = 3;
+inline void NotificationActions::clear_atype() {
+  atype_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& NotificationActions::atype() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationActions.aType)
+  return atype_.GetNoArena();
+}
+inline void NotificationActions::set_atype(const std::string& value) {
+  
+  atype_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationActions.aType)
+}
+inline void NotificationActions::set_atype(std::string&& value) {
+  
+  atype_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:AndroidConnect.NotificationActions.aType)
+}
+inline void NotificationActions::set_atype(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  atype_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:AndroidConnect.NotificationActions.aType)
+}
+inline void NotificationActions::set_atype(const char* value, size_t size) {
+  
+  atype_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:AndroidConnect.NotificationActions.aType)
+}
+inline std::string* NotificationActions::mutable_atype() {
+  
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.NotificationActions.aType)
+  return atype_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* NotificationActions::release_atype() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.NotificationActions.aType)
+  
+  return atype_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotificationActions::set_allocated_atype(std::string* atype) {
+  if (atype != nullptr) {
+    
+  } else {
+    
+  }
+  atype_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), atype);
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.NotificationActions.aType)
+}
+
+// int32 isRepliable = 4;
+inline void NotificationActions::clear_isrepliable() {
+  isrepliable_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 NotificationActions::isrepliable() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationActions.isRepliable)
+  return isrepliable_;
+}
+inline void NotificationActions::set_isrepliable(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  isrepliable_ = value;
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationActions.isRepliable)
+}
+
+// -------------------------------------------------------------------
+
+// NotificationReply
+
+// string replykey = 1;
+inline void NotificationReply::clear_replykey() {
+  replykey_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& NotificationReply::replykey() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationReply.replykey)
+  return replykey_.GetNoArena();
+}
+inline void NotificationReply::set_replykey(const std::string& value) {
+  
+  replykey_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationReply.replykey)
+}
+inline void NotificationReply::set_replykey(std::string&& value) {
+  
+  replykey_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:AndroidConnect.NotificationReply.replykey)
+}
+inline void NotificationReply::set_replykey(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  replykey_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:AndroidConnect.NotificationReply.replykey)
+}
+inline void NotificationReply::set_replykey(const char* value, size_t size) {
+  
+  replykey_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:AndroidConnect.NotificationReply.replykey)
+}
+inline std::string* NotificationReply::mutable_replykey() {
+  
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.NotificationReply.replykey)
+  return replykey_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* NotificationReply::release_replykey() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.NotificationReply.replykey)
+  
+  return replykey_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotificationReply::set_allocated_replykey(std::string* replykey) {
+  if (replykey != nullptr) {
+    
+  } else {
+    
+  }
+  replykey_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), replykey);
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.NotificationReply.replykey)
+}
+
+// string replyvalue = 2;
+inline void NotificationReply::clear_replyvalue() {
+  replyvalue_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& NotificationReply::replyvalue() const {
+  // @@protoc_insertion_point(field_get:AndroidConnect.NotificationReply.replyvalue)
+  return replyvalue_.GetNoArena();
+}
+inline void NotificationReply::set_replyvalue(const std::string& value) {
+  
+  replyvalue_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:AndroidConnect.NotificationReply.replyvalue)
+}
+inline void NotificationReply::set_replyvalue(std::string&& value) {
+  
+  replyvalue_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:AndroidConnect.NotificationReply.replyvalue)
+}
+inline void NotificationReply::set_replyvalue(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  replyvalue_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:AndroidConnect.NotificationReply.replyvalue)
+}
+inline void NotificationReply::set_replyvalue(const char* value, size_t size) {
+  
+  replyvalue_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:AndroidConnect.NotificationReply.replyvalue)
+}
+inline std::string* NotificationReply::mutable_replyvalue() {
+  
+  // @@protoc_insertion_point(field_mutable:AndroidConnect.NotificationReply.replyvalue)
+  return replyvalue_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* NotificationReply::release_replyvalue() {
+  // @@protoc_insertion_point(field_release:AndroidConnect.NotificationReply.replyvalue)
+  
+  return replyvalue_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotificationReply::set_allocated_replyvalue(std::string* replyvalue) {
+  if (replyvalue != nullptr) {
+    
+  } else {
+    
+  }
+  replyvalue_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), replyvalue);
+  // @@protoc_insertion_point(field_set_allocated:AndroidConnect.NotificationReply.replyvalue)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

@@ -10,12 +10,9 @@
 // THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
 // ******************************************************************
 
-
 #include "DesktopNotificationManagerCompat.h"
 #include <appmodel.h>
 #include <wrl\wrappers\corewrappers.h>
-
-
 
 #define RETURN_IF_FAILED(hr) do { HRESULT _hrTemp = hr; if (FAILED(_hrTemp)) { return _hrTemp; } } while (false)
 
@@ -53,7 +50,7 @@ namespace DesktopNotificationManagerCompat
 
         // Get the EXE path
         wchar_t exePath[MAX_PATH];
-        DWORD charWritten = ::GetModuleFileNameW(nullptr, exePath, ARRAYSIZE(exePath));
+        DWORD charWritten = ::GetModuleFileName(nullptr, exePath, ARRAYSIZE(exePath));
         RETURN_IF_FAILED(charWritten > 0 ? S_OK : HRESULT_FROM_WIN32(::GetLastError()));
 
         // Register the COM server
@@ -103,7 +100,7 @@ namespace DesktopNotificationManagerCompat
         DWORD dataSize = static_cast<DWORD>((exePathStr.length() + 1) * sizeof(WCHAR));
 
         // Register the EXE for the COM server
-        return HRESULT_FROM_WIN32(::RegSetKeyValueW(
+        return HRESULT_FROM_WIN32(::RegSetKeyValue(
             HKEY_CURRENT_USER,
             subKey.c_str(),
             nullptr,

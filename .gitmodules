@@ -7,3 +7,6 @@
 [submodule "AndroidConnect/Libs/openssl/openssl"]
 	path = AndroidConnect/Libs/openssl/openssl
 	url = https://github.com/openssl/openssl
+[submodule "AndroidConnect/Libs/tinyxml2"]
+	path = AndroidConnect/Libs/tinyxml2
+	url = https://github.com/leethomason/tinyxml2.git

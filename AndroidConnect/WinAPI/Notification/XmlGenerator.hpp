@@ -1,5 +1,4 @@
 #pragma once
-#include "DesktopNotificationManagerCompat.h"
 #include <SDKDDKVer.h>
 #include <string>
 #include <windows.ui.notifications.h>
@@ -8,12 +7,21 @@
 #include <NotificationActivationCallback.h>
 #include <windows.ui.notifications.h>
 #include "../../Plugins/Notification.pb.h"
+#include <tinyxml2.h>
+#include <winrt/Windows.Data.Xml.Dom.h>
+
+using namespace ABI::Windows::Data::Xml::Dom;
+using namespace ABI::Windows::UI::Notifications;
+using namespace Microsoft::WRL;
+using namespace Microsoft::WRL::Wrappers;
 
 namespace AndroidConnect {
 	class XmlGenerator {
 	public:
-		static HRESULT SetNodeValueString(HSTRING inputString, ABI::Windows::Data::Xml::Dom::IXmlNode* node, ABI::Windows::Data::Xml::Dom::IXmlDocument* xml);
-		static HRESULT Decode(AndroidConnect::Notification& notificationInfo, ABI::Windows::Data::Xml::Dom::IXmlDocument* toastXml);
-		static HRESULT SetImageSrc(PCWSTR imagePath, ABI::Windows::Data::Xml::Dom::IXmlDocument* toastXml);
+		static winrt::hstring Decode(AndroidConnect::Notification& notificationInfo, int clientId);
+		static std::vector<std::wstring> split(std::wstring in, const wchar_t* delim);
+		static std::wstring extract_arg_value(std::wstring arg);
+	private:
+		static std::string FixStr(const char* str);
 	};
 }
