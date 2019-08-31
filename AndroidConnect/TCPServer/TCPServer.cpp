@@ -46,7 +46,7 @@ namespace AndroidConnect {
 		listen_socket(ListeningSocket);
 
 		SSL_CTX* ctx = OpenSSLHelper::create_context();
-		OpenSSLHelper::configure_context(ctx, "D:\cert.pem", "D:\key.pem");
+		OpenSSLHelper::configure_context(ctx, "cert.pem", "key.pem");
 
 		unsigned int clientid = 0;
 	
